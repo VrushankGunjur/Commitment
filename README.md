@@ -11,5 +11,8 @@ A user commits to a message using the Bet::commit() function, which generates bo
 
 For example, if someone agreed to bet on a team losing by x, and they instead lost by y, this program will make it 'impossible' to tamper with the message in the sealed envelope to change it to the team losing by y. 
 
+Compile with gcc:
+gcc -lstdc++ \*.cpp -o main
+
 ### Under the Hood
 To make this work, the commitment scheme is implemented using a home-made hash function. This hash-function attempts to be one-way collision-resistant and close to a cryptographic hash function. To accomplish this, the Merkle-Damgard construction for arbtirary length inputs is implemented, along with a Davies-Meyer encryption handler and an Autokey Cipher in place of the encryption. The commitment scheme also uses 'salting' to help ensure security by generating a nonce, inherent to how a commitment scheme works.
